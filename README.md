@@ -1,6 +1,6 @@
 # Dependencies management
 
-### Theory
+## Theory
 
 **What is Docker, and how it differs from dependencies management systems? From virtual machines?**
 
@@ -69,3 +69,5 @@ Additionally, Podman can run pods - collections containing one or more container
 
 Conda can work locally.
 It can work for each user independently and it does not require system administrator rights.
+
+##Problem
