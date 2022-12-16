@@ -110,7 +110,7 @@ Executing transaction: done
 !activate myenvironment
 ```
 
-**Install all necessary packages**
+**Install all necessary packages**<br>
 ```python
 !conda install -c bioconda fastqc=0.11.9
 !conda install -c bioconda star=2.7.10b
@@ -124,3 +124,13 @@ I've installed these tools through the Bioconda channel.<br>
 The conda team packages a multitude of packages and provides them to all users free of charge in their default channel. But some packages are not included in the default channel. Therefore, there are other channels where packages are stored.<br>
 For example, **Bioconda** lets you install thousands of software packages related to biomedical research using the conda package manager.
 **Conda-forge** is a community channel made up of thousands of contributors. Conda-forge itself is analogous to PyPI but with a unified, automated build infrastructure and more peer review of recipes.
+
+**Export and verify**<br>
+```python
+#Export the environment to the file 
+!conda env export > myenvironment.yml
+```
+```python
+#Verify that the new environment was installed correctly
+!conda env create -f myenvironment.yml
+```
