@@ -74,19 +74,15 @@ It can work for each user independently and it does not require system administr
 ### Anaconda
 
 **Install conda**<br>
-
 ```python
-pip install -q condacolab
+!pip install -q condacolab
 import condacolab
 condacolab.install()
 ```
-
 ```python
-conda --version
+!conda --version
 ```
-
 **Create a new virtual environment**<br>
-
 ```python
 !conda create -n myenvironment
 ```
@@ -96,7 +92,6 @@ Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
 ## Package Plan ##
-
   environment location: /usr/local/envs/myenvironment
 
 Preparing transaction: done
@@ -111,7 +106,6 @@ Executing transaction: done
 #
 #     $ conda deactivate
 ```
-
 ```python
 !activate myenvironment
 ```
@@ -126,3 +120,7 @@ Executing transaction: done
 !conda install -c bioconda bedtools=2.30.0
 !conda install -c bioconda multiqc=1.13
 ```
+I've installed these tools through the Bioconda channel.<br>
+The conda team packages a multitude of packages and provides them to all users free of charge in their default channel. But some packages are not included in the default channel. Therefore, there are other channels where packages are stored.<br>
+For example, **Bioconda** lets you install thousands of software packages related to biomedical research using the conda package manager.
+**Conda-forge** is a community channel made up of thousands of contributors. Conda-forge itself is analogous to PyPI but with a unified, automated build infrastructure and more peer review of recipes.
