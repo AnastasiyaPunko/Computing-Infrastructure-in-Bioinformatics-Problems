@@ -74,20 +74,23 @@ It can work for each user independently and it does not require system administr
 ### Anaconda
 
 **Install conda**<br>
+
 ```python
 pip install -q condacolab
 import condacolab
 condacolab.install()
 ```
+
 ```python
 conda --version
 ```
+
 **Create a new virtual environment**<br>
+
 ```python
 !conda create -n myenvironment
 ```
-_______
-
+Result:
 ```python
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -95,8 +98,6 @@ Solving environment: done
 ## Package Plan ##
 
   environment location: /usr/local/envs/myenvironment
-
-
 
 Preparing transaction: done
 Verifying transaction: done
@@ -111,3 +112,17 @@ Executing transaction: done
 #     $ conda deactivate
 ```
 
+```python
+!activate myenvironment
+```
+
+**Install all necessary packages**
+```python
+!conda install -c bioconda fastqc=0.11.9
+!conda install -c bioconda star=2.7.10b
+!conda install -c bioconda samtools=1.16.1
+!conda install -c bioconda picard
+!conda install -c bioconda salmon=1.9.0
+!conda install -c bioconda bedtools=2.30.0
+!conda install -c bioconda multiqc=1.13
+```
