@@ -112,6 +112,13 @@ Executing transaction: done
 
 **Install all necessary packages**<br>
 ```python
+#Add necessary chanells
+!conda config --add channels bioconda
+!conda config --add channels conda-forge
+!conda config --set channel_priority strict
+```
+```python
+#Add necessary packages
 !conda install -c bioconda fastqc=0.11.9
 !conda install -c bioconda star=2.7.10b
 !conda install -c bioconda samtools=1.16.1
@@ -130,6 +137,22 @@ For example, **Bioconda** lets you install thousands of software packages relate
 #Export the environment to the file 
 !conda env export > myenvironment.yml
 ```
+Result:
+```python
+name: myenvironment
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - multiqc==1.13
+  - fastqc==0.11.9
+  - bedtools==2.30.0
+  - salmon==1.9.0
+  - samtools==1.16.1
+  - star==2.7.10b
+  - picard==2.18.29
+  ```
 ```python
 #Verify that the new environment was installed correctly
 !conda env create -f myenvironment.yml
