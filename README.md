@@ -70,4 +70,4 @@ Additionally, Podman can run pods - collections containing one or more container
 Conda can work locally.
 It can work for each user independently and it does not require system administrator rights.
 
-##Problem
+## Problem
