@@ -12,10 +12,10 @@ A package typically declares: how to build/compile its content and where to stor
 
 *Virtual machine* is the virtualization/emulation of a computer system. Virtual machines are based on computer architectures and provide functionality of a physical computer. 
 
-*1)*The main difference between Docker and VMs lies in their *architecture*.VMs have the host OS and guest OS inside each VM. A guest OS can be any OS, like Linux or Windows, irrespective of the host OS. In contrast, Docker containers host on a single physical server with a host OS, which shares among them. Sharing the host OS between containers makes them light and increases the boot time. Docker containers are considered suitable to run multiple applications over a single OS kernel; whereas, virtual machines are needed if the applications or services required to run on different OS. 
-*2)*Also Virtual Machines are stand-alone with their kernel and security features. Containers share the host kernel. The container technology has access to the kernel subsystems. 
-*3)*VMs are isolated from their OS, and so they are not ported across multiple platforms without incurring compatibility issues. Docker container packages are self-contained and can run applications in any environment, and since they don’t need a guest OS, they can be easily ported across different platforms. Docker containers can be easily deployed in servers since containers being lightweight can be started and stopped in very less time compared to virtual machines.
-*4)*Virtual Machines are more resource-intensive than Docker containers as the virtual machines need to load the entire OS to start.
+1)The main difference between Docker and VMs lies in their *architecture*.VMs have the host OS and guest OS inside each VM. A guest OS can be any OS, like Linux or Windows, irrespective of the host OS. In contrast, Docker containers host on a single physical server with a host OS, which shares among them. Sharing the host OS between containers makes them light and increases the boot time. Docker containers are considered suitable to run multiple applications over a single OS kernel; whereas, virtual machines are needed if the applications or services required to run on different OS.
+2)Also Virtual Machines are stand-alone with their kernel and security features. Containers share the host kernel. The container technology has access to the kernel subsystems.
+3)VMs are isolated from their OS, and so they are not ported across multiple platforms without incurring compatibility issues. Docker container packages are self-contained and can run applications in any environment, and since they don’t need a guest OS, they can be easily ported across different platforms. Docker containers can be easily deployed in servers since containers being lightweight can be started and stopped in very less time compared to virtual machines.
+4)Virtual Machines are more resource-intensive than Docker containers as the virtual machines need to load the entire OS to start.
 
 **What are the advantages and disadvantages of using containers over other approaches?**
 
@@ -55,7 +55,8 @@ Go to the command line of your system. Use the command docker create plus any re
 *Destroy Docker Containers.* 
 Stop one or more running containers (docker stop [OPTIONS] CONTAINER [CONTAINER...]). 
 Remove one or more containers (docker rm [OPTIONS] CONTAINER [CONTAINER...]).
-* [0.25] Name and describe at least one Docker competitor (i.e., a tool based on the same containerization technology).
+
+**Name and describe at least one Docker competitor (i.e., a tool based on the same containerization technology).**
 
 *Podman* is a popular container engine. A container engine is an all-in-one software that manages user requests, loads and verifies container images from a registry server, monitors, allocates, isolates system resources, and runs containers using a bundled container runtime. It allows users to handle and use containers by providing a user interface that abstracts the complexities involved in dealing with system security rules and policies. 
 One significant difference between Docker and Podman is that the Podman starts containers as child processes. It also interacts directly with the registry and with the Linux Kernel using a runtime process. 
