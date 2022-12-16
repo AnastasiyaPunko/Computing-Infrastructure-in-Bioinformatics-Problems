@@ -71,3 +71,9 @@ Conda can work locally.
 It can work for each user independently and it does not require system administrator rights.
 
 ## Problem
+### Anaconda
+
+**Install conda
+'pip install -q condacolab
+import condacolab
+condacolab.install()'
