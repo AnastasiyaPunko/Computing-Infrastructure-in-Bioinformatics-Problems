@@ -12,32 +12,32 @@ A package typically declares: how to build/compile its content and where to stor
 
 *Virtual machine* is the virtualization/emulation of a computer system. Virtual machines are based on computer architectures and provide functionality of a physical computer. 
 
-1)The main difference between Docker and VMs lies in their *architecture*.VMs have the host OS and guest OS inside each VM. A guest OS can be any OS, like Linux or Windows, irrespective of the host OS. In contrast, Docker containers host on a single physical server with a host OS, which shares among them. Sharing the host OS between containers makes them light and increases the boot time. Docker containers are considered suitable to run multiple applications over a single OS kernel; whereas, virtual machines are needed if the applications or services required to run on different OS.
-2)Also Virtual Machines are stand-alone with their kernel and security features. Containers share the host kernel. The container technology has access to the kernel subsystems.
-3)VMs are isolated from their OS, and so they are not ported across multiple platforms without incurring compatibility issues. Docker container packages are self-contained and can run applications in any environment, and since they don’t need a guest OS, they can be easily ported across different platforms. Docker containers can be easily deployed in servers since containers being lightweight can be started and stopped in very less time compared to virtual machines.
-4)Virtual Machines are more resource-intensive than Docker containers as the virtual machines need to load the entire OS to start.
+1) The main difference between Docker and VMs lies in their *architecture*.VMs have the host OS and guest OS inside each VM. A guest OS can be any OS, like Linux or Windows, irrespective of the host OS. In contrast, Docker containers host on a single physical server with a host OS, which shares among them. Sharing the host OS between containers makes them light and increases the boot time. Docker containers are considered suitable to run multiple applications over a single OS kernel; whereas, virtual machines are needed if the applications or services required to run on different OS.<br>
+2) Also Virtual Machines are stand-alone with their kernel and security features. Containers share the host kernel. The container technology has access to the kernel subsystems.<br>
+3) VMs are isolated from their OS, and so they are not ported across multiple platforms without incurring compatibility issues. Docker container packages are self-contained and can run applications in any environment, and since they don’t need a guest OS, they can be easily ported across different platforms. Docker containers can be easily deployed in servers since containers being lightweight can be started and stopped in very less time compared to virtual machines.<br>
+4) Virtual Machines are more resource-intensive than Docker containers as the virtual machines need to load the entire OS to start.
 
 **What are the advantages and disadvantages of using containers over other approaches?**
 
 *Advantages:*
 
-*1) Portability.*
+*1) Portability.*<br>
 As a part of a distributed system, containers are highly portable.
-Because containers pack microservices and their dependencies in a small-sized package, it’s easy to move containers around.
-*2) Effective resource usage.*
+Because containers pack microservices and their dependencies in a small-sized package, it’s easy to move containers around.<br>
+*2) Effective resource usage.*<br>
 Code packaged within containers share most of the dependencies needed to run the containers, including an operating system, libraries, and frameworks.
-There’s only one copy of necessary files in each hardware, leading to more effective resource usage. 
-*3) Easier to maintain.*
-As containers use a microservices-based architecture, your code is broken down into manageable pieces that can be handled individually. 
-*4) Highly Scalable.*
+There’s only one copy of necessary files in each hardware, leading to more effective resource usage. <br>
+*3) Easier to maintain.*<br>
+As containers use a microservices-based architecture, your code is broken down into manageable pieces that can be handled individually. <br>
+*4) Highly Scalable.*<br>
 Containerized applications are highly scalable, and they can scale up and down quickly by spinning up new nodes and/or pods when the needs call for it.
 
 *Disadvantages:*
 
-*1) Lacking Security measures.*
-Containers provide lightweight isolation from the host OS and containers within the same system. This leads to a weaker security boundary.
-*2) Runs only one OS.*
-This can be a benefit if you only use one OS, but if you need to be able to use it across different OS’s this is a negative.
+*1) Lacking Security measures.*<br>
+Containers provide lightweight isolation from the host OS and containers within the same system. This leads to a weaker security boundary.<br>
+*2) Runs only one OS.*<br>
+This can be a benefit if you only use one OS, but if you need to be able to use it across different OS’s this is a negative.<br>
 
 **Explain how Docker works: what are Dockerfiles, how are containers created, and how are they run and destroyed?**
 
@@ -47,12 +47,12 @@ Docker packages, provisions and runs containers. Container technology is availab
 
 Docker can build images automatically by reading the instructions from a *Dockerfile*. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
 
-*Creating the Container.*
+*Creating the Container.*<br>
 Go to the command line of your system. Use the command docker create plus any relevant options. This command creates a layer over the original image which is writeable and ready to run specific commands. This allows full manipulation of Docker images without running them, although once the user is satisfied with their amendments the image can be run so that it becomes a container. ( docker create [OPTIONS] IMAGE [COMMAND] [ARG...])
 
 *Docker runs* processes in isolated containers. A container is a process which runs on a host. The host may be local or remote. When an operator executes docker run, the container process that runs is isolated in that it has its own file system, its own networking, and its own isolated process tree separate from the host. (docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...])
 
-*Destroy Docker Containers.* 
+*Destroy Docker Containers.* <br>
 Stop one or more running containers (docker stop [OPTIONS] CONTAINER [CONTAINER...]). 
 Remove one or more containers (docker rm [OPTIONS] CONTAINER [CONTAINER...]).
 
