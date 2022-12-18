@@ -206,6 +206,7 @@ cd docker
 touch Dockerfile
 ```
 ```bash
+#Write all required dependencies
 nano Dockerfile
 ```
 Dockerfile: <br>
@@ -221,5 +222,10 @@ RUN apt-get update && apt-get install -y multiqc<br>
 
 
 ```bash
+#Build Image
 docker build -t test .
+```
+```bash
+#Run Image
+docker run --rm -it test
 ```
