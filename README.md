@@ -197,7 +197,7 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 
-** Create a Dockerfile**
+**Create a Dockerfile**
 ```bash
 cd docker
 ```
@@ -209,15 +209,15 @@ touch Dockerfile
 nano Dockerfile
 ```
 Dockerfile: <br>
-FROM ubuntu:22.04
+FROM ubuntu:22.04<br>
 
-RUN apt-get update && apt-get install -y fastqc
-RUN apt-get update && apt-get install -y rna-star
-RUN apt-get update && apt-get install -y samtools
-RUN apt-get update && apt-get install -y picard
-RUN apt-get update && apt-get install -y salmon
-RUN apt-get update && apt-get install -y bedtools
-RUN apt-get update && apt-get install -y multiqc
+RUN apt-get update && apt-get install -y fastqc<br>
+RUN apt-get update && apt-get install -y rna-star<br>
+RUN apt-get update && apt-get install -y samtools<br>
+RUN apt-get update && apt-get install -y picard<br>
+RUN apt-get update && apt-get install -y salmon<br>
+RUN apt-get update && apt-get install -y bedtools<br>
+RUN apt-get update && apt-get install -y multiqc<br>
 
 
 ```bash
