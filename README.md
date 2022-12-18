@@ -262,7 +262,7 @@ FROM ubuntu:22.04
 
 LABEL maintainer="anpunko@edu.hse.ru"
 LABEL build_date="15-12-2022"
-LABEL version= "1.0"
+LABEL version="1.0"
 LABEL description="Dependencies for RNA-seq analysis"
 
 RUN apt-get update && apt-get install -y fastqc=0.11.9 --no-install-recommends  \
