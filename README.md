@@ -229,3 +229,30 @@ docker build -t test .
 #Run Image
 docker run --rm -it test
 ```
+
+**Dockerfile after Hadolint**
+```
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y fastqc=0.11.9 --no-install-recommends  \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y rna-star=2.7.10b --no-install-recommends \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y samtools=1.16.1 --no-install-recommends \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y picard=2.27.5 --no-install-recommends \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y salmon=1.9.0 --no-install-recommends \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y bedtools=2.30.0 --no-install-recommends \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y multiqc=1.13 --no-install-recommends \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+```
