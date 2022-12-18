@@ -197,22 +197,29 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 
-Download Image Ubuntu 20.04
+** Create a Dockerfile**
 ```bash
-docker pull ubuntu:20.04
+cd docker
 ```
-```bash 
-docker images
-```
-Result
 ```bash
+#create file
+touch Dockerfile
+```
+```bash
+nano Dockerfile
+```
+Dockerfile: <br>
+FROM ubuntu:22.04
 
-```
-Run conteiner
-```bash
-docker run -it ubuntu:20.04 /bin/bash
-```
-Result
-```bash
+RUN apt-get update && apt-get install -y fastqc
+RUN apt-get update && apt-get install -y rna-star
+RUN apt-get update && apt-get install -y samtools
+RUN apt-get update && apt-get install -y picard
+RUN apt-get update && apt-get install -y salmon
+RUN apt-get update && apt-get install -y bedtools
+RUN apt-get update && apt-get install -y multiqc
 
+
+```bash
+docker build -t test .
 ```
