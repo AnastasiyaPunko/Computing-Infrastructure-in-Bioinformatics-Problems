@@ -201,3 +201,18 @@ Download Image Ubuntu 20.04
 ```bash
 docker pull ubuntu:20.04
 ```
+```bash 
+docker images
+```
+Result
+```bash
+
+```
+Run conteiner
+```bash
+docker run -it ubuntu:20.04 /bin/bash
+```
+Result
+```bash
+
+```
