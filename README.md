@@ -151,3 +151,16 @@ tabix MYC.sorted.bed.gz \
 tabix ZNF707.sorted.bed.gz \
 tabix ATAC-seq-K562.sorted.bed.gz
 ```
+
+**JBrowse 2**
+
+```bash
+#Download and install JBrowse 2. 
+sudo apt-get install npm \
+sudo npm install -g @jbrowse/cli \
+
+#Create a new jbrowse repository.
+jbrowse create /home/anastasiyavpunko/jbr
+```
+
+
