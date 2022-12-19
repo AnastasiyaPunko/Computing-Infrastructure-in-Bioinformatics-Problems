@@ -80,3 +80,74 @@ The two widely used *methods of SSH authentication* for secure remote access are
 In password-based authentication, after establishing secure connection with remote servers, SSH users usually pass on their usernames and passwords to remote servers for client authentication. These credentials are shared through the secure tunnel established by symmetric encryption. The server checks for these credentials in the database and, if found, authenticates the client and allows it to communicate. <br>
 *Public key-based authentication*<br>
 In Public key-based authentication, after the client establishes a connection with the remote server, the client informs the server of the key pair it would like to authenticate itself with. The server verifies the existence of this key pair in its database and then sends an encrypted message to the client. The client decrypts the message with it’s private key and generates a hash value which is sent back to the server for verification. The server generates its own hash value and compares it with the one sent from the client. When both the hash values match, the server is convinced of the client’s authenticity and allows it to communicate with the server.
+
+
+
+## Problem
+
+**Remote Server**
+```bash
+#Generate SSH key pair
+ssh-keygen
+```
+```bash
+cat .ssh/id_rsa.pub
+```
+```bash
+#Connect to my server
+ssh anastasiyavpunko@51.250.84.187
+```
+```bash
+##Download the latest human genome assembly (GRCh38) from the Ensemble FTP server
+wget https://ftp.ensembl.org/pub/release-108/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz \
+wget https://ftp.ensembl.org/pub/release-108/gff3/homo_sapiens/Homo_sapiens.GRCh38.108.gff3.gz
+```
+```bash
+#Install tools for our job
+sudo apt-get update -y \
+sudo apt-get install -y samtools \
+sudo apt-get install -y tabix \
+sudo apt-get install bedtools
+```
+```bash
+#Index the fasta using samtools (samtools faidx) 
+gzip -d Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz \ #unzip file
+samtools faidx Homo_sapiens.GRCh38.dna.primary_assembly.fa   #get Homo_sapiens.GRCh38.dna.primary_assembly.fa.fai
+```
+```bash
+#Index the GFF3 using tabix
+gzip -d Homo_sapiens.GRCh38.108.gff3.gz \ #unzip file
+(grep ^"#" Homo_sapiens.GRCh38.108.gff3; grep -v ^"#" Homo_sapiens.GRCh38.108.gff3 | sort -k1,1 -k4,4n) > Homo_sapiens.GRCh38.108.sorted.gff3 \ #sort
+bgzip Homo_sapiens.GRCh38.108.sorted.gff3 \ #zip file
+tabix Homo_sapiens.GRCh38.108.sorted.gff3.gz   #get Homo_sapiens.GRCh38.108.sorted.gff3.gz.tbi
+```
+
+Select and download BED files for three ChIP-seq and one ATAC-seq experiment from the ENCODE (cell line-K562)
+
+```bash
+#Download ChIP-seq
+wget -O FOXA3.bed "https://www.encodeproject.org/files/ENCFF504WWL/@@download/ENCFF504WWL.bed.gz" \
+wget -O MYC.bed "https://www.encodeproject.org/files/ENCFF664GSV/@@download/ENCFF664GSV.bed.gz" \ 
+wget -O ZNF707.bed "https://www.encodeproject.org/files/ENCFF959ZKZ/@@download/ENCFF959ZKZ.bed.gz" \
+# Download ATAC-seq
+wget -O ATAC-seq-K562.bed "https://www.encodeproject.org/files/ENCFF855PCP/@@download/ENCFF855PCP.bed.gz"
+```
+```bash
+#sort
+bedtools sort -i FOXA3.bed > FOXA3.sorted.bed \
+bedtools sort -i MYC.bed > MYC.sorted.bed \
+bedtools sort -i ZNF707.bed > ZNF707.sorted.bed \
+bedtools sort -i ATAC-seq-K562.bed > ATAC-seq-K562.sorted.bed \
+
+#bgzip
+bgzip FOXA3.sorted.bed \
+bgzip MYC.sorted.bed \
+bgzip ZNF707.sorted.bed \
+bgzip ATAC-seq-K562.sorted.bed \
+
+#index using tabix
+tabix FOXA3.sorted.bed.gz \
+tabix MYC.sorted.bed.gz \
+tabix ZNF707.sorted.bed.gz \
+tabix ATAC-seq-K562.sorted.bed.gz
+```
