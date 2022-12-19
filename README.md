@@ -168,6 +168,7 @@ jbrowse create /home/anastasiyavpunko/jbr
 sudo apt-get install nginx
 sudo nano /etc/nginx/nginx.conf
 ```
+```
 I added this:
 server {
       listen 80;
@@ -177,7 +178,7 @@ server {
           alias /home/anastasiyavpunko/jbr;    
       }
   }
-  
+```  
   
 ```bash
 #Restart the nginx (reload its config)
