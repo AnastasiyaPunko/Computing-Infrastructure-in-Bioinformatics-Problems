@@ -163,4 +163,27 @@ sudo npm install -g @jbrowse/cli \
 jbrowse create /home/anastasiyavpunko/jbr
 ```
 
+```bash
+# Install nginx and amend its config
+sudo apt-get install nginx
+sudo nano /etc/nginx/nginx.conf
+```
+I added this:
+server {
+      listen 80;
+      index index.html;
+
+      location /jbrowse/ {
+          alias /home/anastasiyavpunko/jbr;    
+      }
+  }
+  
+  
+```bash
+#Restart the nginx (reload its config)
+sudo /etc/init.d/nginx reload
+```
+
+http://51.250.84.187/jbrowse/ - 404 Not Found
+
 
