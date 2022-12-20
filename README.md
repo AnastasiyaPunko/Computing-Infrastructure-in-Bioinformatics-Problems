@@ -95,7 +95,7 @@ cat .ssh/id_rsa.pub
 ```
 ```bash
 #Connect to my server
-ssh anastasiyavpunko@51.250.84.187
+ssh anastasiyavpunko@51.250.78.235
 ```
 ```bash
 ##Download the latest human genome assembly (GRCh38) from the Ensemble FTP server
