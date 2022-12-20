@@ -137,7 +137,7 @@ wget -O ATAC-seq-K562.bed "https://www.encodeproject.org/files/ENCFF855PCP/@@dow
 bedtools sort -i FOXA3.bed > FOXA3.sorted.bed \
 bedtools sort -i MYC.bed > MYC.sorted.bed \
 bedtools sort -i ZNF707.bed > ZNF707.sorted.bed \
-bedtools sort -i ATAC-seq-K562.bed > ATAC-seq-K562.sorted.bed \
+bedtools sort -i ATAC-seq-K562.bed > ATAC-seq-K562.sorted.bed 
 
 #bgzip
 bgzip FOXA3.sorted.bed \
@@ -160,7 +160,7 @@ sudo apt-get install npm \
 sudo npm install -g @jbrowse/cli \
 
 #Create a new jbrowse repository.
-jbrowse create /home/anastasiyavpunko/jbr
+jbrowse create /var/www/html/jbrowse/
 ```
 
 ```bash
@@ -172,11 +172,7 @@ sudo nano /etc/nginx/nginx.conf
 I added this:
 server {
       listen 80;
-      index index.html;
-
-      location /jbrowse/ {
-          alias /home/anastasiyavpunko/jbr;    
-      }
+      index index.html;   
   }
 ```  
   
@@ -185,7 +181,7 @@ server {
 sudo /etc/init.d/nginx reload
 ```
 
-http://51.250.84.187/jbrowse/ - 404 Not Found
+http://51.250.78.235/jbrowse/ 
 
 
 ## Extra points
