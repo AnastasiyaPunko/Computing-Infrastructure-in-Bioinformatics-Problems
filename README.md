@@ -104,7 +104,7 @@ wget https://ftp.ensembl.org/pub/release-108/gff3/homo_sapiens/Homo_sapiens.GRCh
 ```
 ```bash
 #Install tools for our job
-sudo apt-get update -y \
+sudo apt-get update \
 sudo apt-get install -y samtools \
 sudo apt-get install -y tabix \
 sudo apt-get install bedtools
