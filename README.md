@@ -180,7 +180,7 @@ server {
 #Restart the nginx (reload its config)
 sudo /etc/init.d/nginx reload
 ```
-
+Access the browser using a link: <br>
 http://51.250.78.235/jbrowse/ 
 
 
