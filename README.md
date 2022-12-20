@@ -183,6 +183,16 @@ sudo /etc/init.d/nginx reload
 Access the browser using a link: <br>
 http://51.250.78.235/jbrowse/ 
 
+```bash
+jbrowse add-assembly Homo_sapiens.GRCh38.dna.primary_assembly.fa --load copy --out /var/www/html/jbrowse/
+jbrowse add-assembly Homo_sapiens.GRCh38.dna.primary_assembly.fa.fai --load copy --out /var/www/html/jbrowse/
+
+jbrowse add-track Homo_sapiens.GRCh38.108.sorted.gff.gz --load copy --out /var/www/html/jbrowse
+jbrowse add-track Homo_sapiens.GRCh38.108.sorted.gff3.gz.tbi --load copy --out /var/www/html/jbrowse
+
+jbrowse add-track FOXA3.sorted.bed.gz --load copy --out /var/www/html/jbrowse
+jbrowse add-track FOXA3.sorted.bed.gz.tbi --load copy --out /var/www/html/jbrowse
+```
 
 ## Extra points
 
