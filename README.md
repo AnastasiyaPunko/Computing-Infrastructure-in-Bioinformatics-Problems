@@ -160,7 +160,7 @@ sudo apt-get install npm \
 sudo npm install -g @jbrowse/cli \
 
 #Create a new jbrowse repository.
-jbrowse create /var/www/html/jbrowse/
+sudo jbrowse create /var/www/html/jbrowse/
 ```
 
 ```bash
